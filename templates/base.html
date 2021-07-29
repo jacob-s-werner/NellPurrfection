@@ -2,9 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static/styles', filename='style.css') }}">
 </head>
 <body>
+    <nav class="navbar navbar-expand navbar-dark nav-headerstay">
+        <a class="navbar-brand left-pad-50" href="{{ url_for('blog.index') }}"><i>Nell</i></a>
+          <div class="collapse navbar-nav navbar-collapse" >
+              <span class="nav-item active">
+                 <a class="nav-link" href="{{ url_for('auth.login') }}">Login</a>
+              </span>
+              <span class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('auth.register') }}">Register</a>
+              </span>
+          </div>
+        </nav>
+    <br/><br/>
+    <div class="container">
+        <header>
+        {% block header %}{% endblock %}
+        </header>
+    </div>
 
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+    <br/><br/><br/><br>
+<footer class="footer">
+    <div></div>
+  <div class="container">
+        <a class="footer-button" href="{{ url_for('auth.login') }}">Login</a> |
+        <a class="footer-button" href="{{ url_for('auth.register') }}">Register</a> |
+  </div>
+    <div class="container secret-message">
+            Website created by Jacob Werner
+    </div>
+</footer>
 </body>
 </html>
