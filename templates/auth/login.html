@@ -1,9 +1,23 @@
 {% extends 'base.html' %}
 
 {% block header %}
-{% block title %}  {% endblock %}
+{% block title %} Login {% endblock %}
 {% endblock %}
 
 {% block content %}
-
+<div class="container">
+    <form action="" method="post">
+    <label>Username : </label><br>
+    <input name="username" type="email" placeholder="Enter Username" required><br><br>
+    <label>Password : </label><br>
+    <input name="password" type="password" placeholder="Enter Password" required><br><br>
+    <input type="submit" value="Login"><br><br>
+    </form>
+</div>
+<div>
+    <form action="/new">
+    <label>New Here?</label>
+        <input value="Register" type="submit">
+    </form>
+</div>
 {% endblock %}
